@@ -46,6 +46,7 @@ export interface IItem {
     user: {
         _id: string,
         displayName: string,
+        phone: string,
     };
     title: string
     description: string;

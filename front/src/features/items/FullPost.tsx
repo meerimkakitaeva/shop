@@ -53,6 +53,9 @@ const FullPost = () => {
                                         <Typography gutterBottom component="div" sx={{ color: 'gray', fontSize: '12px' }}>
                                             seller: {post.user.displayName}
                                         </Typography>
+                                        <Typography gutterBottom component="div" sx={{ color: 'gray', fontSize: '12px' }}>
+                                            phone: {post.user.phone}
+                                        </Typography>
                                     </Grid>
                                     <Grid>
                                         {post.image && (
