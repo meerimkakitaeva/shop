@@ -9,7 +9,10 @@ const itemsRouter = express.Router();
 
 itemsRouter.get('/', async (req, res) => {
     try {
-        const items: IItem[] = await Item.find();
+        const { category } = req.query;
+        const query = category ? { category } : {};
+
+        const items: IItem[] = await Item.find(query);
         res.send(items);
     } catch (e) {
         return res.sendStatus(500);

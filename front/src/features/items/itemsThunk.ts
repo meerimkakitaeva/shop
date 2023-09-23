@@ -3,10 +3,11 @@ import axiosApi from '../../axiosApi';
 import {IItem, IItemMutation} from "../../types";
 import {RootState} from "../../app/store";
 
-export const fetchItems = createAsyncThunk<IItem[]>(
-    'posts/fetchAll',
-    async() => {
-        const response = await axiosApi.get<IItem[]>('/items');
+export const fetchItems = createAsyncThunk<IItem[], string>(
+    'items/fetchAll',
+    async (category: string) => {
+        const categoryResponse = category ? `/items?category=${category}` : '/items';
+        const response = await axiosApi.get<IItem[]>(categoryResponse);
         return response.data;
     }
 );
