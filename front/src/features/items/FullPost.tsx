@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import {useNavigate, useParams} from 'react-router-dom';
 import {
     Container,
     CircularProgress,
@@ -9,25 +9,45 @@ import {
     CardMedia,
     Grid,
     Typography,
+    Button,
 } from '@mui/material';
 import {
     useAppDispatch,
     useAppSelector
 } from '../../app/hook';
 import {
+    selectDeleteLoading,
     selectFetchOneLoading,
     selectOneItem
 } from './itemsSlice';
 import { apiUrl } from '../../constants';
-import { fetchOneItem } from './itemsThunk';
+import {deleteItem, fetchOneItem} from './itemsThunk';
+import {selectUser} from "../users/usersSlice";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const FullPost = () => {
     const { id } = useParams() as { id: string };
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
     const post = useAppSelector(selectOneItem);
     const fetchLoading = useAppSelector(selectFetchOneLoading);
+    const deleteLoading = useAppSelector(selectDeleteLoading);
+    const user = useAppSelector(selectUser);
 
     let item: React.ReactNode = <CircularProgress />;
+
+    const onDelete = async () => {
+        if (window.confirm('Delete this item ?')) {
+            try {
+                await dispatch(deleteItem(id));
+                alert('Deleted');
+                navigate('/');
+            } catch (e) {
+                alert('Not deleted');
+            }
+        }
+    };
+
 
     if (!fetchLoading && post) {
         item = (
@@ -66,6 +86,17 @@ const FullPost = () => {
                                                     sx={{ width: '300px', height: '300px' }}
                                                 />
                                             </Grid>
+                                        )}
+                                    </Grid>
+                                    <Grid>
+                                        {user?._id === post?.user?._id && (
+                                            <Button
+                                                onClick={onDelete}
+                                                disabled={deleteLoading ? deleteLoading === id : false}
+                                                startIcon={<DeleteIcon />}
+                                            >
+                                                Delete
+                                            </Button>
                                         )}
                                     </Grid>
                                 </Grid>

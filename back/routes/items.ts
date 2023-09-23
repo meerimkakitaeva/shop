@@ -55,4 +55,32 @@ itemsRouter.post('/', auth, imagesUpload.single('image'), async (req, res, next)
     }
 });
 
+itemsRouter.delete("/:id", auth, async (req, res, next) => {
+    try {
+        const userId = (req as RequestWithUser).user._id;
+        const item_id = req.params.id;
+        const item = await Item.findOne({ _id: item_id });
+
+        if (!item) {
+            return res.status(400).send({ error: "Not found!" });
+        }
+
+        if (item.user.toString() !== userId.toString()) {
+            return res
+                .status(403)
+                .send({ error: "you can't delete just your tasks!" });
+        }
+
+        await Item.deleteOne({ _id: item_id, user: userId });
+        return res.send("Successfully deleted");
+
+    } catch (error) {
+        if (error instanceof mongoose.Error.ValidationError) {
+            return res.status(400).send(error);
+        }
+
+        return next(error);
+    }
+});
+
 export default itemsRouter;

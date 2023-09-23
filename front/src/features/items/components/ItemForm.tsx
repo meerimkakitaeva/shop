@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
-import { Grid, TextField,} from '@mui/material';
+import {Grid, MenuItem, Select, TextField, SelectChangeEvent} from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
 import SendIcon from '@mui/icons-material/Send';
 import {useAppDispatch, useAppSelector} from '../../../app/hook';
@@ -9,6 +9,7 @@ import {selectUser} from '../../users/usersSlice';
 import FileInput from '../../../components/FileInput/FileInput';
 import {selectCreateLoading} from "../itemsSlice";
 import {createItem} from "../itemsThunk";
+import {categories} from "../../../constants";
 
 const ItemForm = () => {
   const dispatch = useAppDispatch();
@@ -37,7 +38,7 @@ const ItemForm = () => {
   const submitFormHandler = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!state.title || !state.price || !state.category) {
+    if (!state.title || !state.price || !state.category || !state.image) {
       alert('Please fill in all required fields');
       return;
     }
@@ -51,7 +52,7 @@ const ItemForm = () => {
     navigate('/');
   };
 
-  const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const inputChangeHandler = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> | SelectChangeEvent) => {
     const {name, value} = e.target;
 
     setState(prevState => {
@@ -101,14 +102,23 @@ const ItemForm = () => {
 
 
           <Grid item xs>
-            <TextField
-                id="category" label="Category"
+            <Select
+                id="category"
+                label="Category"
                 value={state.category}
                 onChange={inputChangeHandler}
                 name="category"
                 sx={{ width: '100%' }}
-            />
+                required
+            >
+              {categories.map((item) => (
+                  <MenuItem key={item} value={item}>
+                    {item}
+                  </MenuItem>
+              ))}
+            </Select>
           </Grid>
+
 
           <Grid item xs>
             <TextField
