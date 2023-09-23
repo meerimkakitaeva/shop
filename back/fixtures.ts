@@ -36,30 +36,34 @@ const run = async () => {
   const [item_1, item_2, item_3, item_4] = await Item.create(
     {
       user: user_1._id,
+        title: 'Dress',
       description: 'Simple white dress for girls',
       price: 1300,
-      image: '',
+      image: '/fixtures/whiteDress.jpeg',
       category : 'clothes'
     },
     {
       user: user_2._id,
+        title: 'HP',
       description: 'HP Pro Book',
       price: 80000,
-      image: '',
+      image: '/fixtures/hp.jpeg',
       category : 'PC'
     },
     {
       user: user_1._id,
+        title: 'T-Shirt',
       description: 'Blue t-shirt for boys',
       price: 1100,
-      image: '',
+      image: '/fixtures/tShirt.jpeg',
       category : 'clothes'
     },
     {
       user: user_2._id,
+        title: 'Macbook',
       description: 'Macbook m2',
       price: 120000,
-      image: '',
+      image: '/fixtures/macbook.jpeg',
       category : 'PC'
     },
   )

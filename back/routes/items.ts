@@ -36,6 +36,7 @@ itemsRouter.post('/', auth, imagesUpload.single('image'), async (req, res, next)
 
         const itemData: IItemMutation = {
             user: userId,
+            title: req.body.title,
             description: req.body.description,
             price: req.body.price,
             image: req.file ? req.file.filename : '',

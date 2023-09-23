@@ -13,6 +13,10 @@ const ItemSchema = new Schema({
             message: 'User does not exist!',
         },
     },
+    title: {
+        type: String,
+        required: true,
+    },
     description: {
         type: String,
         required: true,

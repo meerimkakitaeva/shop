@@ -11,6 +11,7 @@ export interface IUser {
 export interface IItem {
     id: string,
     user: ObjectId;
+    title: string,
     description: string;
     price: number;
     image: string;
@@ -19,6 +20,7 @@ export interface IItem {
 
 export interface IItemMutation {
     user: mongoose.Types.ObjectId;
+    title: string,
     description: string;
     price: number;
     image: string;
