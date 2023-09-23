@@ -40,3 +40,24 @@ export interface ValidationError {
 export interface GlobalError {
     error: string;
 }
+
+export interface IItem {
+    id: string,
+    user: {
+        id: string,
+        displayName: string,
+    };
+    title: string
+    description: string;
+    price: number;
+    image: string;
+    category: string;
+}
+export interface IItemMutation {
+    user: string | null;
+    title: string,
+    description: string;
+    price: number;
+    image: File | null;
+    category: string;
+}

@@ -24,7 +24,7 @@ const AppToolbar = () => {
     const isLoginPathname = pathname === '/login' || pathname === '/register';
 
   return (
-        <AppBar position="fixed">
+        <AppBar position="sticky" sx={{mb: 5}}>
             <Toolbar>
                 <Typography variant="h4" component="div" sx={{flexGrow: 1, color: '#fff'}}>
                     <Link to="/">Lalafo</Link>
