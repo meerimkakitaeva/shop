@@ -25,6 +25,7 @@ import {deleteItem, fetchOneItem} from './itemsThunk';
 import {selectUser} from "../users/usersSlice";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
+import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 
 const FullPost = () => {
     const { id } = useParams() as { id: string };
