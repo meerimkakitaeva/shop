@@ -18,7 +18,7 @@ const OneItem: React.FC<Props> = ({ _id, title, price, image }) => {
               component={Link} to={`/items/${_id}`}
         >
             <CardActionArea>
-                <CardMedia component="img" image={itemImage} alt={title} />
+                <CardMedia component="img" image={itemImage} alt={title} sx={{  width: '100%', maxHeight: '250px', objectFit: 'contain'}}/>
                 <CardContent>
                     <Typography variant="h6" gutterBottom>
                         {title}

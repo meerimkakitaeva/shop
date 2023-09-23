@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Container, Grid, Typography} from "@mui/material";
+import {Container, Grid} from "@mui/material";
 import CircularProgress from '@mui/material/CircularProgress';
 import {selectFetchLoading, selectItems} from "./itemsSlice";
 import {useAppDispatch, useAppSelector} from "../../app/hook";
@@ -32,12 +32,9 @@ const Items = () => {
     }, [dispatch]);
 
     return (
-        <Container maxWidth="md">
+        <Container maxWidth="lg">
             <Grid container spacing={2}>
                 <Grid item xs={12}>
-                    <Typography variant="h6" sx={{mb:3, mt: 2}} textAlign="center">
-                        Items :
-                    </Typography>
                     <div style={{display: "flex",flexWrap: "wrap", flexDirection: "row", justifyContent: "center"}}>
                         {cards}
                     </div>

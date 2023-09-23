@@ -51,7 +51,7 @@ const FullPost = () => {
 
     if (!fetchLoading && post) {
         item = (
-            <Container maxWidth="sm">
+            <Container maxWidth="md">
                 <Card sx={{ mb: 3 }}>
                     <CardActionArea>
                         <CardContent>
@@ -65,16 +65,16 @@ const FullPost = () => {
                                             <Typography gutterBottom component="div" sx={{ fontSize: '20px' }}>
                                                 Price: {post.price}
                                             </Typography>
-                                            <Typography gutterBottom component="div" sx={{ fontSize: '20px' }}>
-                                                Category: {post.category}
-                                            </Typography>
                                             <Typography gutterBottom component="div">
                                                 Description: {post.description}
                                             </Typography>
-                                            <Typography gutterBottom component="div" sx={{ color: 'gray', fontSize: '12px' }}>
+                                            <Typography gutterBottom component="div" sx={{ color: 'gray', fontSize: '14px' }}>
+                                                category: {post.category}
+                                            </Typography>
+                                            <Typography gutterBottom component="div" sx={{ color: 'gray', fontSize: '14px' }}>
                                                 seller: {post.user.displayName}
                                             </Typography>
-                                            <Typography gutterBottom component="div" sx={{ color: 'gray', fontSize: '12px' }}>
+                                            <Typography gutterBottom component="div" sx={{ color: 'gray', fontSize: '14px' }}>
                                                 phone: {post.user.phone}
                                             </Typography>
                                         </Grid>
@@ -84,7 +84,7 @@ const FullPost = () => {
                                                     <CardMedia
                                                         component="img"
                                                         image={`${apiUrl}/${post.image}`}
-                                                        sx={{ width: '300px', height: '300px' }}
+                                                        sx={{  width: '100%', maxHeight: '300px', objectFit: 'contain'}}
                                                     />
                                                 </Grid>
                                             )}
