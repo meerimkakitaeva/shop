@@ -14,9 +14,9 @@ To install this project, follow these steps:
 Here's how to use this project:
 
 at back folder
-$ run mongodb on your pc
-$ npm run dev
+1) run mongodb on your pc
+2) npm run dev
 
 at front folder
-$ npm start
-$ server is on http://localhost:3000/
+1) npm start
+2) server is on http://localhost:3000/
