@@ -56,37 +56,39 @@ const FullPost = () => {
                     <CardActionArea>
                         <CardContent>
                             <Grid container alignItems="center">
-                                <Grid item xs sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                                    <Grid item xs>
-                                        <Typography gutterBottom component="div" sx={{ fontSize: '20px' }}>
-                                            "{post.title}"
-                                        </Typography>
-                                        <Typography gutterBottom component="div" sx={{ fontSize: '20px' }}>
-                                            Price: {post.price}
-                                        </Typography>
-                                        <Typography gutterBottom component="div" sx={{ fontSize: '20px' }}>
-                                            Category: {post.category}
-                                        </Typography>
-                                        <Typography gutterBottom component="div">
-                                            Description: {post.description}
-                                        </Typography>
-                                        <Typography gutterBottom component="div" sx={{ color: 'gray', fontSize: '12px' }}>
-                                            seller: {post.user.displayName}
-                                        </Typography>
-                                        <Typography gutterBottom component="div" sx={{ color: 'gray', fontSize: '12px' }}>
-                                            phone: {post.user.phone}
-                                        </Typography>
-                                    </Grid>
-                                    <Grid>
-                                        {post.image && (
-                                            <Grid item sx={{ marginLeft: '10px' }}>
-                                                <CardMedia
-                                                    component="img"
-                                                    image={`${apiUrl}/${post.image}`}
-                                                    sx={{ width: '300px', height: '300px' }}
-                                                />
-                                            </Grid>
-                                        )}
+                                <Grid >
+                                    <Grid item xs sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                                        <Grid item xs>
+                                            <Typography gutterBottom component="div" sx={{ fontSize: '20px' }}>
+                                                "{post.title}"
+                                            </Typography>
+                                            <Typography gutterBottom component="div" sx={{ fontSize: '20px' }}>
+                                                Price: {post.price}
+                                            </Typography>
+                                            <Typography gutterBottom component="div" sx={{ fontSize: '20px' }}>
+                                                Category: {post.category}
+                                            </Typography>
+                                            <Typography gutterBottom component="div">
+                                                Description: {post.description}
+                                            </Typography>
+                                            <Typography gutterBottom component="div" sx={{ color: 'gray', fontSize: '12px' }}>
+                                                seller: {post.user.displayName}
+                                            </Typography>
+                                            <Typography gutterBottom component="div" sx={{ color: 'gray', fontSize: '12px' }}>
+                                                phone: {post.user.phone}
+                                            </Typography>
+                                        </Grid>
+                                        <Grid>
+                                            {post.image && (
+                                                <Grid item sx={{ marginLeft: '10px' }}>
+                                                    <CardMedia
+                                                        component="img"
+                                                        image={`${apiUrl}/${post.image}`}
+                                                        sx={{ width: '300px', height: '300px' }}
+                                                    />
+                                                </Grid>
+                                            )}
+                                        </Grid>
                                     </Grid>
                                     <Grid>
                                         {user?._id === post?.user?._id && (
