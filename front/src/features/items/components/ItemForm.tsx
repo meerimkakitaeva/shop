@@ -37,6 +37,16 @@ const ItemForm = () => {
   const submitFormHandler = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (!state.title || !state.price || !state.category) {
+      alert('Please fill in all required fields');
+      return;
+    }
+
+    if (state.price < 0) {
+      alert("Price can't be a negative number");
+      return;
+    }
+
     await dispatch(createItem(state));
     navigate('/');
   };

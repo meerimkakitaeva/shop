@@ -42,9 +42,9 @@ export interface GlobalError {
 }
 
 export interface IItem {
-    id: string,
+    _id: string,
     user: {
-        id: string,
+        _id: string,
         displayName: string,
     };
     title: string

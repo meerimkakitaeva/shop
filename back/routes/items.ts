@@ -18,7 +18,7 @@ itemsRouter.get('/', async (req, res) => {
 
 itemsRouter.get('/:id', async (req, res) => {
     try {
-        const item = await Item.findById(req.params.id);
+        const item = await Item.findById(req.params.id).populate('user', 'displayName');
 
         if (!item) {
             return res.sendStatus(404);

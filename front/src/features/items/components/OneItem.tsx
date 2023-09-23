@@ -14,7 +14,9 @@ const OneItem: React.FC<Props> = ({ _id, title, price, image }) => {
     const itemImage = image ? `${apiUrl}/${image}` : '';
 
     return (
-        <Card sx={{ mb: 3, maxWidth: 300, m: 3, position: 'relative', textDecoration: "none" }} component={Link} to={`/items/${_id}`}>
+        <Card sx={{ mb: 3, maxWidth: 300, m: 3, position: 'relative', textDecoration: "none" }}
+              component={Link} to={`/items/${_id}`}
+        >
             <CardActionArea>
                 <CardMedia component="img" image={itemImage} alt={title} />
                 <CardContent>

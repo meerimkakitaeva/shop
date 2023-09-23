@@ -6,6 +6,7 @@ import Register from "./features/users/Register";
 import Login from "./features/users/Login";
 import Items from "./features/items/Items";
 import NewItem from "./features/items/NewItem";
+import FullPost from "./features/items/FullPost";
 
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
                     <Route path="/register" element={<Register/>} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/item-create" element={<NewItem />} />
+                    <Route path="/items/:id" element={<FullPost/>}/>
                 </Routes>
             </>
         </div>

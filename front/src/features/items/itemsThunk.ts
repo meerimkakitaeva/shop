@@ -38,17 +38,10 @@ export const createItem = createAsyncThunk<void, IItemMutation, { state: RootSta
     }
 );
 
-
-
-
-
-
-
-
-// export const fetchOnePost = createAsyncThunk<IPost, string>(
-//     'posts/fetchOnePost',
-//     async (id) => {
-//         const response = await axiosApi.get<IPost>('/posts/' + id);
-//         return response.data;
-//     }
-// );
+export const fetchOneItem = createAsyncThunk<IItem, string>(
+    'items/fetchOneItem',
+    async (id) => {
+        const response = await axiosApi.get<IItem>('/items/' + id);
+        return response.data;
+    }
+);

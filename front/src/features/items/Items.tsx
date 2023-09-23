@@ -18,8 +18,8 @@ const Items = () => {
         const newAlbums = [...items];
         cards = newAlbums.map((item) => (
             <OneItem
-                key={item.id}
-                _id={item.id}
+                key={item._id}
+                _id={item._id}
                 title={item.title}
                 price={item.price}
                 image={item.image}
