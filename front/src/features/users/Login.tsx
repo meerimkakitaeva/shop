@@ -37,15 +37,6 @@ const Login = () => {
         }
     };
 
-    {error && (
-        <Alert
-            severity="error"
-            sx={{mt: 3, width: '100%'}}
-        >
-            {error.error}
-        </Alert>
-    )}
-
     return (
         <Container component="main" maxWidth="xs">
             <Box
@@ -62,6 +53,12 @@ const Login = () => {
                 <Typography component="h1" variant="h5">
                     Sign in
                 </Typography>
+
+                {error && (
+                    <Alert severity={"error"} sx={{mt:3, width:"100%"}}>
+                        {error.error}
+                    </Alert>
+                )}
 
                 <Box component="form" onSubmit={submitFormHandler} sx={{mt: 3}}>
                     <Grid container spacing={2}>
