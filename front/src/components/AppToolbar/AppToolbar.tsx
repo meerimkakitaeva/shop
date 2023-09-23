@@ -1,6 +1,7 @@
 import React from 'react';
 import { AppBar, styled, Toolbar, Typography } from '@mui/material';
 import { Link as NavLink, useLocation } from 'react-router-dom';
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 
 import UserMenu from "./UserMenu";
 import AnonymousMenu from "./AnonymousMenu";
@@ -27,7 +28,7 @@ const AppToolbar = () => {
         <AppBar position="sticky" sx={{mb: 5}}>
             <Toolbar>
                 <Typography variant="h4" component="div" sx={{flexGrow: 1, color: '#fff'}}>
-                    <Link to="/">Lalafo</Link>
+                    <Link to="/">Lalafo <ShoppingCartOutlinedIcon /></Link>
                 </Typography>
 
                 {isAuthenticated && <UserMenu user={user} />}

@@ -24,6 +24,7 @@ import { apiUrl } from '../../constants';
 import {deleteItem, fetchOneItem} from './itemsThunk';
 import {selectUser} from "../users/usersSlice";
 import DeleteIcon from "@mui/icons-material/Delete";
+import SellOutlinedIcon from "@mui/icons-material/SellOutlined";
 
 const FullPost = () => {
     const { id } = useParams() as { id: string };
@@ -62,8 +63,8 @@ const FullPost = () => {
                                             <Typography gutterBottom component="div" sx={{ fontSize: '20px' }}>
                                                 "{post.title}"
                                             </Typography>
-                                            <Typography gutterBottom component="div" sx={{ fontSize: '20px' }}>
-                                                Price: {post.price}
+                                            <Typography  style={{ display: "flex", alignItems: "center", fontSize: '20px' }}>
+                                                {post.price} <SellOutlinedIcon style={{ fontSize: "1.1em", marginLeft: "4px", color: "green" }} />
                                             </Typography>
                                             <Typography gutterBottom component="div">
                                                 Description: {post.description}
@@ -74,8 +75,8 @@ const FullPost = () => {
                                             <Typography gutterBottom component="div" sx={{ color: 'gray', fontSize: '14px' }}>
                                                 seller: {post.user.displayName}
                                             </Typography>
-                                            <Typography gutterBottom component="div" sx={{ color: 'gray', fontSize: '14px' }}>
-                                                phone: {post.user.phone}
+                                            <Typography sx={{display: "flex", alignItems: "center", color: 'gray', fontSize: '14px' }}>
+                                                <LocalPhoneOutlinedIcon style={{ fontSize: "1.1em"}}/>: {post.user.phone}
                                             </Typography>
                                         </Grid>
                                         <Grid>

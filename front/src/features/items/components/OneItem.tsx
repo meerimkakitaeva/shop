@@ -2,6 +2,7 @@ import React from 'react';
 import {Card, CardActionArea, CardContent, CardMedia, Typography} from "@mui/material";
 import {Link} from "react-router-dom";
 import {apiUrl} from "../../../constants";
+import SellOutlinedIcon from '@mui/icons-material/SellOutlined';
 
 interface Props {
     _id: string,
@@ -23,8 +24,8 @@ const OneItem: React.FC<Props> = ({ _id, title, price, image }) => {
                     <Typography variant="h6" gutterBottom>
                         {title}
                     </Typography>
-                    <Typography color="textSecondary" variant="body2">
-                        {price}
+                    <Typography color="textSecondary" variant="body2" style={{ display: "flex", alignItems: "center" }}>
+                        {price} <SellOutlinedIcon style={{ fontSize: "1.0em", marginLeft: "4px", color: "green" }} />
                     </Typography>
                 </CardContent>
             </CardActionArea>
