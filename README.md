@@ -9,14 +9,11 @@ To install this project, follow these steps:
 2. Navigate to the project folder: `cd your-repo`
 3. Install dependencies to back and front folders each: `npm install`
 
-## Usage
+## Back
 
-Here's how to use this project:
-
-at back folder
 1) run mongodb on your pc
 2) npm run dev
 
-at front folder
+## Front
 1) npm start
 2) server is on http://localhost:3000/
