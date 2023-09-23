@@ -13,10 +13,10 @@ To install this project, follow these steps:
 
 Here's how to use this project:
 
-```at back
+at back folder
 $ run mongodb on your pc
 $ npm run dev
 
-```at front
+at front folder
 $ npm start
 $ server is on http://localhost:3000/
