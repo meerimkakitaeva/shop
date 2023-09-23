@@ -17,29 +17,35 @@ const run = async () => {
     console.log('Collection were not present, skipping drop collections');
   }
 
-  const [user_1, user_2] = await User.create(
+  const [user_1, user_2, user_3] = await User.create(
     {
       username: 'user_1',
       password: '12',
       displayName: 'Bob',
-      phone: "+123456789",
+      phone: "+123456789988",
       token: crypto.randomUUID(),
     }, {
       username: 'user_2',
       password: '123',
       displayName: 'Loon',
-        phone: '+09876543',
+        phone: '+667788900078',
       token: crypto.randomUUID(),
-    }
+    }, {
+        username: 'user_3',
+          password: '1234',
+          displayName: 'Yan',
+          phone: '+776509809784',
+          token: crypto.randomUUID(),
+      }
   );
 
   const [item_1, item_2, item_3, item_4] = await Item.create(
     {
       user: user_1._id,
-        title: 'Dress',
-      description: 'Fall in love with this beautiful dress, netted mesh at the waist and an embroidered top make this dress a great choice',
-      price: 1300,
-      image: '/fixtures/whiteDress.jpeg',
+        title: 'Flowy Trench Coat',
+      description: 'Trench coat with lapel collar and long sleeves. Front welt pockets. Back vent. Front button closure.',
+      price: 5600,
+      image: '/fixtures/trench.jpg',
       category : 'clothes'
     },
     {
@@ -97,6 +103,30 @@ const run = async () => {
           price: 135000,
           image: '/fixtures/iphone.jpeg',
           category : 'phones'
+      },
+      {
+          user: user_3._id,
+          title: 'Fahrenheit 451',
+          description: 'Fahrenheit 451 (1953) is regarded as Ray Bradbury\'s greatest work. The novel is about a future society where books are forbidden, and it has been acclaimed for its anti-censorship themes and its defense of literature against the encroachment of electronic media.',
+          price: 990,
+          image: 'fixtures/book3.jpeg',
+          category: 'books',
+      },
+      {
+          user: user_2.id,
+          title: 'Lenovo IdeaPad 3',
+          description: 'The Lenovo IdeaPad 3 15 (2021) is a budget Windows ultraportable laptop. It\'s available with AMD Ryzen 5000 U-series CPUs, integrated graphics, up to 16GB of memory, and over 1TB of storage. You can choose between a TN or IPS display; they\'re both 1080p 60Hz panels with no variable refresh rate support.',
+          price: 55000,
+          image: 'fixtures/lenovo.jpeg',
+          category: 'PC',
+      },
+      {
+          user: user_1.id,
+          title: 'Faux Suede Bomber Jacket',
+          description: 'Round collar jacket with cuffed long sleeves. Front welt pockets. Front tonal snap button closure.',
+          price: 3500,
+          image: 'fixtures/zara.jpeg',
+          category: 'clothes',
       },
   )
 
